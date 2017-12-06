@@ -140,7 +140,6 @@ def calcX(data, begin, end):
 def CorrectedY(begin, end, calcY, deltaT, data):
     data.set_value(begin,'correctY', 0)
     for i in range(int(begin+1), int(end)):
-#         data.set_value(i,'correctY', data.loc[i-1,'correctY']+ (data.loc[i-1,'Vy'] - calcY/deltaT)/fs)
         data.set_value(i,'correctY', data.loc[i-1,'correctY']+ (data.loc[i-1,'Vy'])/fs)
  
 # calculate the Foot Clearance
@@ -364,17 +363,13 @@ def main():
     
     origin_left = DealWithTime(origin_left)
     origin_left = ScaleAcc(origin_left)
-    
-    # Overview(origin_left[500:1350])
+
     left = origin_left[600:1300]
     left = left.reset_index(drop=True)
     
     Lsteps = process_data(left, 0.11)
 
     # slice the step_data for left and right foot to make sure they can match
-    #
-    # plt.plot(Lsteps['time'], Lsteps['calcX'], 'r', Rsteps['time'], Rsteps['calcX'], 'b')
-    # plt.show()
     Rsteps = Rsteps[1:-1]
 
     # print the result of step length and time for each step
@@ -431,6 +426,9 @@ def main():
     print('{:.2%}'.format(abs(avg_Vx_right/actual_V)))
     print('left: ', end=' ')
     print('{:.2%}'.format(abs(avg_Vx_left/actual_V)))
+
+    Rsteps.to_csv("zmq_steps_right.csv")
+    Lsteps.to_csv("zmq_steps_left.csv")
 
 if __name__ == '__main__':
     main()
