@@ -427,8 +427,8 @@ def main():
     print('left: ', end=' ')
     print('{:.2%}'.format(abs(avg_Vx_left/actual_V)))
 
-    Rsteps.to_csv("zmq_steps_right.csv")
-    Lsteps.to_csv("zmq_steps_left.csv")
+    Rsteps.to_csv("../dataset/zmq_steps_right.csv")
+    Lsteps.to_csv("../dataset/zmq_steps_left.csv")
 
 if __name__ == '__main__':
     main()
