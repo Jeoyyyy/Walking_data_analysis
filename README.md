@@ -26,6 +26,7 @@ python3 DataAnalysis_lzy.py
 * pandas
 * matplotlib.pyolot
 * scipy
+* datetime
 
 ## Expected output:
 * The source files should print out the result of walking pace, walking speed, and stats test summary
