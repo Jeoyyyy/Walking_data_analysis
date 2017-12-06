@@ -8,7 +8,7 @@
 * Zhaoyang Li zla143@sfu.ca
 
 ## File organization
-* There are 3 .py source file in 3 directories named Joey, Tony and Margerett.
+* There are 3 .py source file in 3 directories named Joey, Tony and Margaret.
 * Each .py file is used to analize a set of data composed of data recorded from left and right foot
 * The algorithm used in the 3 file to do the analsis is the same, but there are 3 files because each dataset need to be extracted and cleaned a little differently
 * Datasets used by the programs is in dataset directory
