@@ -181,7 +181,7 @@ def process_data(left):
 
     plt.clf()
 
-    # assume at mid stance the cell phone is vertical and the it only have Vx due to rotation around ankle
+    # assume at mid stance the cell phone is vertical and it only have Vx due to rotation around ankle
     steps['initVy'] = 0
     steps['initVx'] = 0.1 * steps['gyroZ']
     steps['endVy'] = steps['initVy'].shift(-1)
@@ -220,19 +220,21 @@ def process_data(left):
                 axis=1)
     steps['FC'] = steps.apply((lambda row: getFC(left_data, row['begin_idx'], row['end_idx'])), axis=1)
 
-    plt.plot(left_data['time'], left_data['Vy'], 'b-')
-    plt.plot(steps['time'], steps['initVy'], 'r*')
+    plt.figure(figsize=(16, 4.5))
+    p1 = plt.subplot(1, 2, 1)
+    p1.plot(left_data['time'], left_data['Vy'], 'b-')
+    p1.plot(steps['time'], steps['initVy'], 'r*')
     plt.xlabel('time')
     plt.ylabel('Vy(m/s)')
     plt.title(label + ' Vy')
-    plt.savefig(label + ' Vy')
-    plt.clf()
 
-    plt.plot(left_data['time'], left_data['Vx'], 'b-')
-    plt.plot(steps['time'], steps['initVx'], 'r*')
+    p2 = plt.subplot(1, 2, 2)
+    p2.plot(left_data['time'], left_data['Vx'], 'b-')
+    p2.plot(steps['time'], steps['initVx'], 'r*')
     plt.xlabel('time')
     plt.ylabel('Vx(m/s)')
-    plt.savefig(label + ' Vx')
+    plt.title(label + ' Vx')
+    plt.savefig(label + ' VxVy')
     plt.clf()
 
     return steps
@@ -281,8 +283,8 @@ def main():
     left = left.reset_index(drop=True)
     steps_left = process_data(left)
 
-    steps_left.to_csv('steps_left.csv')
-    steps_right.to_csv('steps_right.csv')
+    steps_left.to_csv('../dataset/lzy_steps_left.csv')
+    steps_right.to_csv('../dataset/lzy_steps_right.csv')
 
     print(OUTPUT_TEMPLATE.format(
         left_dis_normal_p = stats.normaltest(steps_left['disX']).pvalue,
