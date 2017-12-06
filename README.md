@@ -15,6 +15,11 @@
 
 ## How to run:
 * Goto each of the 3 directories and run the .py files with no argument. Order does not matter.
+```
+python3 DataAnalysis_zmq.py
+python3 DataAnalysis_tony.py
+python3 DataAnalysis_lzy.py
+```
 
 ## Required Libraries
 * numpy
@@ -24,4 +29,4 @@
 
 ## Expected output:
 * The source files should print out the result of walking pace, walking speed, and stats test summary
-* They also should save some figures in the current directory and .csv file containing the calculated data result into the dataset directory
+* They also should create some figures in the current directory and .csv file containing the calculated data result into the dataset directory
