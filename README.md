@@ -11,11 +11,17 @@
 * There are 3 .py source file in 3 directories named Joey, Tony and Margerett.
 * Each .py file is used to analize a set of data composed of data recorded from left and right foot
 * The algorithm used in the 3 file to do the analsis is the same, but there are 3 files because each dataset need to be extracted and cleaned a little differently
-* Datasets used by the programs is in dataset directory 
+* Datasets used by the programs is in dataset directory
 
 ## How to run:
 * Goto each of the 3 directories and run the .py files with no argument. Order does not matter.
 
+## Required Libraries
+* numpy
+* pandas
+* matplotlib.pyolot
+* scipy
+
 ## Expected output:
 * The source files should print out the result of walking pace, walking speed, and stats test summary
-* They also should save some figures in the current directory and .csv file containing the calculated data into the dataset directory
+* They also should save some figures in the current directory and .csv file containing the calculated data result into the dataset directory
