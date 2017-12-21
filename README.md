@@ -31,3 +31,5 @@ python3 DataAnalysis_lzy.py
 ## Expected output:
 * The source files should print out the result of walking pace, walking speed, and stats test summary
 * They also should create some figures in the current directory and .csv file containing the calculated data result into the dataset directory
+
+
